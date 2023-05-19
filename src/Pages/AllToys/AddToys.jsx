@@ -2,13 +2,30 @@ import { useForm } from "react-hook-form";
 
 const AddToys = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
 
+  const onSubmit = (data) => {
+    const processedData = {
+      ...data,
+      price: parseFloat(data.price),
+    };
+
+    fetch("http://localhost:5000/toys", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(processedData),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
+  };
   return (
-    <form className="mb-36" onSubmit={handleSubmit(onSubmit)}>
-      <h2 className="text-3xl sm:text-5xl block font-extrabold text-[#b18aff] text-center my-12">
-          Add A Toy
-        </h2>
+    <form className="mb-36 rounded" onSubmit={handleSubmit(onSubmit)}>
+      <h2 className="text-3xl sm:text-5xl block font-extrabold text-[#b18aff] text-center my-12 rounded ">
+        Add A Toy
+      </h2>
       <div className="grid gap-6  md:grid-cols-2 bg-[#b18aff] py-4 px-3  ">
         <div>
           <label className="block mb-2 text-sm font-medium text-gray-900">
@@ -29,7 +46,7 @@ const AddToys = () => {
             {...register("category")}
             className="select select-primary w-full"
           >
-            <option>Spots Toy</option>
+            <option>Sports Car</option>
             <option>Truck</option>
             <option>Regular Car</option>
           </select>
@@ -65,7 +82,6 @@ const AddToys = () => {
             type="text"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             placeholder="Email"
-            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
           />
         </div>
         <div>
@@ -74,7 +90,7 @@ const AddToys = () => {
           </label>
           <input
             {...register("price")}
-            type="text"
+            type="number"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
             placeholder="price"
           />
