@@ -49,31 +49,35 @@ const Navbar = () => {
             <img src="https://i.ibb.co/xhLH8Gy/download.png" />
           </div>
         </label>
-        <Link className="btn btn-ghost normal-case text-xl text-white">myToys</Link>
+        <Link className="btn btn-ghost normal-case text-xl text-white">
+          myToys
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-white">
-        <li>
-              <Link>Home</Link>
-            </li>
+          <li>
+            <Link>Home</Link>
+          </li>
 
-            <li>
-              <Link>All Toys</Link>
-            </li>
-            <li>
-              <Link>My Toys</Link>
-            </li>
+          <li>
+            <Link>All Toys</Link>
+          </li>
+          <li>
+            <Link>My Toys</Link>
+          </li>
 
-            <li>
-              <Link>Add A Toy</Link>
-            </li>
-            <li>
-              <Link>Blog</Link>
-            </li>
+          <li>
+            <Link>Add A Toy</Link>
+          </li>
+          <li>
+            <Link>Blog</Link>
+          </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <Link className="btn  border-none">Get started</Link>
+        <Link className="btn bg-white text-black font-bold  border-none">
+          Get started
+        </Link>
       </div>
     </div>
   );

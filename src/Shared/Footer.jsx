@@ -1,11 +1,11 @@
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-[#b18aff] text-white">
+        <footer className="footer p-10 bg-[#b18aff] text-white rounded">
   <div>
             
                 <img width="50" height="50"  src="https://i.ibb.co/xhLH8Gy/download.png" alt="" />
-    <p>myToys Group Of Industies.<br/>Providing reliable tech since 1992</p>
+    <p><span className="text-3xl">myToys.</span><br/>Providing reliable toys since 1992</p>
   </div> 
   <div>
     <span className="footer-title">Services</span>  
