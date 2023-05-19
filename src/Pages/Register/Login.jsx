@@ -1,10 +1,16 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
-  const {googleLogin}
+  const {googleLogin}=useContext(AuthContext)
 
   const handleLogin = () => {
-    
+    googleLogin()
+      .then(result => {
+        const user = result.user
+        console.log(user);
+    })
   }
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">

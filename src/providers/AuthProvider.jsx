@@ -9,8 +9,10 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import app from "../Firebase";
+import app from "../firebase";
 
+
+// eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
   const auth = getAuth(app);
   const GoogleProvider = new GoogleAuthProvider();

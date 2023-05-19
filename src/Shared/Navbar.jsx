@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
   return (
     <div className="navbar bg-[#b18aff] rounded my-3">
       <div className="navbar-start">
@@ -29,14 +33,17 @@ const Navbar = () => {
               <NavLink>Home</NavLink>
             </li>
 
-            <li></li>
-            <li>
-              <NavLink>My Toys</NavLink>
-            </li>
+            {user && (
+              <>
+                <li>
+                  <NavLink>My Toys</NavLink>
+                </li>
 
-            <li>
-              <NavLink>Add A Toy</NavLink>
-            </li>
+                <li>
+                  <NavLink>Add A Toy</NavLink>
+                </li>
+              </>
+            )}
             <li>
               <NavLink>Blog</NavLink>
             </li>
@@ -56,29 +63,47 @@ const Navbar = () => {
           <li>
             <Link>Home</Link>
           </li>
-        
+
           <li>
             <Link>All Toys</Link>
           </li>
+          {user && (
+            <>
+              {" "}
+              <li>
+                <Link>My Toys</Link>
+              </li>
+              <li>
+                <Link to="/addToys">Add A Toy</Link>
+              </li>
+            </>
+          )}
           <li>
-            <Link>My Toys</Link>
-          </li>
-
-          <li>
-            <Link to='/addToys'>Add A Toy</Link>
-          </li>
-          <li>
-            <Link to='/blog'>Blog</Link>
+            <Link to="/blog">Blog</Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <Link
-          to="/login"
-          className="btn hover:bg-[#f2f7f2] bg-white text-black font-bold  border-none"
-        >
-          Login
-        </Link>
+        {user && (
+          <div className="w-10 rounded mr-4 group relative  flex justify-center">
+            <img src={user.photoURL} />
+            <span className="absolute right-10 scale-0 rounded bg-gray-800 p-4 text-xs text-white group-hover:scale-100">
+              {user.displayName}{" "}
+            </span>
+          </div>
+        )}
+        {user ? (
+          <NavLink onClick={logOut} className="btn btn-primary border-none">
+            Logout
+          </NavLink>
+        ) : (
+          <NavLink
+            to="/login"
+            className="btn hover:bg-[#f2f7f2] bg-white text-black font-bold  border-none"
+          >
+            Login
+          </NavLink>
+        )}
       </div>
     </div>
   );
