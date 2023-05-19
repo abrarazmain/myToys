@@ -63,13 +63,13 @@ const ShopCategory = () => {
       </div>
       <div className="mt-10 grid grid-cols-1 gap-6"></div>
       {/* map */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto mx-[50px]">
         {cars &&
           cars.map((car) => (
             <>
               <div className="card w-96 bg-base-100 shadow-xl ">
                 <figure>
-                  <img src={car.url} alt="Shoes" />
+                  <img className="h-[250px]" src={car.url} alt="Shoes" />
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title">{car.name}</h2>
