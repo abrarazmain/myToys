@@ -3,15 +3,26 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
-  const {googleLogin}=useContext(AuthContext)
+  const { signIn, googleLogin } = useContext(AuthContext);
 
-  const handleLogin = () => {
-    googleLogin()
-      .then(result => {
-        const user = result.user
-        console.log(user);
-    })
-  }
+  const handleGoogleLogin = () => {
+    googleLogin().then((result) => {
+      const user = result.user;
+      console.log(user);
+    });
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+      .then(() => {})
+      .catch(() => {});
+  };
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
       <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
@@ -20,7 +31,10 @@ const Login = () => {
             <h1 className="text-2xl xl:text-3xl font-extrabold">Login</h1>
             <div className="w-full flex-1 mt-8">
               <div className="flex flex-col items-center">
-                <button onClick={handleLogin} className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
+                <button
+                  onClick={handleGoogleLogin}
+                  className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
+                >
                   <div className="bg-white p-2 rounded-full">
                     <svg className="w-4" viewBox="0 0 533.5 544.3">
                       <path
@@ -52,32 +66,36 @@ const Login = () => {
             </div>
             <div className="w-full flex-1 ">
               <div className="mx-auto max-w-xs">
-                <input
-                  className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                  type="email"
-                  placeholder="Email"
-                />
-                <input
-                  className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                  type="password"
-                  placeholder="Password"
-                />
-
-                <button className="mt-5 tracking-wide font-semibold bg-[#b18aff] text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                  <svg
-                    className="w-6 h-6 -ml-2 "
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="8.5" cy={7} r={4} />
-                    <path d="M20 8v6M23 11h-6" />
-                  </svg>
-                  <span className="ml-3">Login</span>
-                </button>
+                <form onSubmit={handleLogin}>
+                  {" "}
+                  <input
+                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                    type="email"
+                    placeholder="Email"
+                    name="email"
+                  />
+                  <input
+                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                  />
+                  <button className="mt-5 tracking-wide font-semibold bg-[#b18aff] text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                    <svg
+                      className="w-6 h-6 -ml-2 "
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                      <circle cx="8.5" cy={7} r={4} />
+                      <path d="M20 8v6M23 11h-6" />
+                    </svg>
+                    <span className="ml-3">Login</span>
+                  </button>
+                </form>
                 <p className="mt-6 text-sm text-gray-600 text-center">
                   Do not have an account?{" "}
                   <Link className="font-bold text-[#b18aff]" to="/register">

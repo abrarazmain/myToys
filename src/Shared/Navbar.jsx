@@ -4,7 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+
   return (
     <div className="navbar bg-[#b18aff] rounded my-3">
       <div className="navbar-start">

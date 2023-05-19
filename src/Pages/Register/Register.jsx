@@ -1,5 +1,5 @@
 import { getAuth, updateProfile } from "firebase/auth";
- "react-router-dom";
+("react-router-dom");
 import app from "../../firebase";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
@@ -26,17 +26,10 @@ const Register = () => {
           displayName: name,
           photoURL: photo,
         })
-          .then((user) => {
-            console.log(user);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+          .then(() => {})
+          .catch(() => {});
       })
-      .catch((error) => {
-        const errorMessage = error.message;
-        console.log(errorMessage);
-      });
+      .catch(() => {});
   };
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
