@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const Banner = () => {
   return (
-    <section className="relative h-[500px] bg-[url(https://thumbs.dreamstime.com/b/baby-kids-toys-banner-background-teddy-bear-bunny-wooden-blocks-balls-light-blue-background-top-view-flat-lay-baby-kids-toys-221249868.jpg)] bg-cover bg-center bg-no-repeat">
+    <section className="relative h-[500px] bg-[url(https://i.ibb.co/Yp3VnWb/baby-kids-toys-banner.jpg)] bg-cover bg-center bg-no-repeat">
       <div className="absolute inset-0  sm:bg-transparent sm:from-white/95 sm:to-white/25 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l" />
       <div className="relative mx-auto  px-4 py-32  lg:items-center lg:px-8 flex items-center justify-center">
         <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
@@ -21,12 +23,12 @@ const Banner = () => {
             >
               Get Started
             </a>
-            <a
+            <Link
               href="#"
-              className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-black shadow  focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
+              className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-black shadow  focus:outline-none focus:ring  sm:w-auto"
             >
               Learn More
-            </a>
+            </Link>
           </div>
         </div>
       </div>

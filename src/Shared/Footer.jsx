@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -8,24 +9,24 @@ const Footer = () => {
     <p><span className="text-3xl">myToys.</span><br/>Providing reliable toys since 1992</p>
   </div> 
   <div>
-    <span className="footer-title">Services</span>  
-    <a className="link link-hover">Branding</a> 
-    <a className="link link-hover">Design</a> 
-    <a className="link link-hover">Marketing</a> 
-    <a className="link link-hover">Advertisement</a>
+    <span className="footer-title">FInd Us On</span>  
+    <Link to='https://www.facebook.com/groups/1232069727348110/?hoisted_section_header_type=recently_seen&multi_permalinks=1337338590154556' className="link link-hover">FaceBook</Link> 
+    <Link to='https://www.youtube.com/@ProgrammingHero' className="link link-hover">Youtube</Link> 
+    <Link className="link link-hover">Tweeter</Link> 
+    <Link className="link link-hover">Github</Link>
   </div> 
   <div>
     <span className="footer-title">Company</span> 
-    <a className="link link-hover">About us</a> 
-    <a className="link link-hover">Contact</a> 
-    <a className="link link-hover">Jobs</a> 
-    <a className="link link-hover">Press kit</a>
+    <Link className="link link-hover">About us</Link> 
+    <Link className="link link-hover">Contact</Link> 
+    <Link className="link link-hover">Jobs</Link> 
+    <Link className="link link-hover">Press kit</Link>
   </div> 
   <div>
     <span className="footer-title">Legal</span> 
-    <a className="link link-hover">Terms of use</a> 
-    <a className="link link-hover">Privacy policy</a> 
-    <a className="link link-hover">Cookie policy</a>
+    <Link className="link link-hover">Terms of use</Link> 
+    <Link className="link link-hover">Privacy policy</Link> 
+    <Link className="link link-hover">Cookie policy</Link>
   </div>
 </footer>
     );
