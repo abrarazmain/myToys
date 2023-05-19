@@ -1,11 +1,11 @@
 const Gallery = () => {
   return (
     <>
-      <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24">
-        <h2 className="text-3xl sm:text-5xl block font-extrabold text-[#b18aff] text-center my-4">
+      <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24 ">
+        <h2 className=" text-5xl block font-extrabold text-[#b18aff] text-center my-4">
           Photo Gallery
         </h2>
-        <div className="-m-1 flex flex-wrap md:-m-2">
+        <div className="-m-1 md:flex flex-wrap md:-m-2">
           <div className="flex w-1/2 flex-wrap">
             <div className="w-1/2 p-1 md:p-2">
               <img

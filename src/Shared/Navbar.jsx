@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -26,21 +26,19 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link>Home</Link>
+              <NavLink>Home</NavLink>
+            </li>
+
+            <li></li>
+            <li>
+              <NavLink>My Toys</NavLink>
             </li>
 
             <li>
-              <Link>All Toys</Link>
+              <NavLink>Add A Toy</NavLink>
             </li>
             <li>
-              <Link>My Toys</Link>
-            </li>
-
-            <li>
-              <Link>Add A Toy</Link>
-            </li>
-            <li>
-              <Link>Blog</Link>
+              <NavLink>Blog</NavLink>
             </li>
           </ul>
         </div>
@@ -58,7 +56,7 @@ const Navbar = () => {
           <li>
             <Link>Home</Link>
           </li>
-
+        
           <li>
             <Link>All Toys</Link>
           </li>
@@ -67,16 +65,19 @@ const Navbar = () => {
           </li>
 
           <li>
-            <Link>Add A Toy</Link>
+            <Link to='/addToys'>Add A Toy</Link>
           </li>
           <li>
-            <Link>Blog</Link>
+            <Link to='/blog'>Blog</Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to='/login' className="btn hover:bg-[#f2f7f2] bg-white text-black font-bold  border-none">
-         Login
+        <Link
+          to="/login"
+          className="btn hover:bg-[#f2f7f2] bg-white text-black font-bold  border-none"
+        >
+          Login
         </Link>
       </div>
     </div>

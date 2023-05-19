@@ -3,26 +3,31 @@ import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Register/Login";
 import Register from "../Pages/Register/Register";
+import AddToys from "../Pages/AllToys/AddToys";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
+  {
+    path: "/",
     element: <Main></Main>,
     children: [
       {
-        path: '/',
-        element:<Home></Home>
-        },
+        path: "/",
+        element: <Home></Home>,
+      },
       {
-        path: 'login',
-        element:<Login></Login>
-        },
+        path: "login",
+        element: <Login></Login>,
+      },
       {
-        path: 'register',
-        element:<Register></Register>
-        },
-      ]
-    },
+        path: "register",
+        element: <Register></Register>,
+      },
+      {
+        path: "addToys",
+        element: <AddToys></AddToys>,
+      },
+    ],
+  },
 ]);
-  
-export default router
+
+export default router;
