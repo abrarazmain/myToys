@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import AllToys from "../Pages/AllToys/AllToys";
 import MyToys from "../Pages/AllToys/MyToys";
 import UpdateToy from "../Pages/AllToys/UpdateToy";
+import Error from "../Pages/Error";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,12 @@ const router = createBrowserRouter([
       },
         
     ],
+    
   },
+  {
+    path: "*",
+    element: <Error></Error>,
+  }
 ]);
 
 export default router;

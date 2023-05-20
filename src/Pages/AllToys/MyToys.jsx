@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
+  const [toggle, setToggle] = useState(false);
   useEffect(() => {
     fetch(`http://localhost:5000/myToys/${user?.email}
         `)
@@ -16,7 +17,7 @@ const MyToys = () => {
       .then((data) => {
         setToys(data);
       });
-  }, [toys]);
+  }, [toggle]);
 
   const handleDelete = (id) => {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -46,6 +47,7 @@ const MyToys = () => {
             .then((data) => {
               console.log(data);
               if (data.deletedCount == 1) {
+                setToggle(!toggle);
                 swalWithBootstrapButtons.fire(
                   "Deleted!",
                   "Your file has been deleted.",

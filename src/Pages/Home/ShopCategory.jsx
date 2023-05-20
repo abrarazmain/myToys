@@ -68,9 +68,9 @@ const ShopCategory = () => {
         {cars &&
           cars.map((car) => (
             <>
-              <div className="card w-96 bg-base-100 shadow-xl ">
+              <div className="card w-96 bg-base-100 shadow-xl my-3">
                 <figure>
-                  <img className="h-[250px]" src={car.url} alt="Shoes" />
+                  <img className="h-[250px]" src={car.url} alt="Car" />
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title">{car.name}</h2>
