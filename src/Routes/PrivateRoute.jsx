@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 // eslint-disable-next-line react/prop-types
 const PrivateRoute = ({ children }) => {
@@ -28,6 +29,13 @@ const PrivateRoute = ({ children }) => {
   if (user) {
     return children;
   } else {
+    Swal.fire({
+      position: "top",
+      icon: "info",
+      title: "please Login",
+      showConfirmButton: false,
+      timer: 2000,
+    });
     return <Navigate state={{ from: location }} to="/login" replace></Navigate>;
   }
 };

@@ -71,7 +71,7 @@ const Navbar = () => {
             <>
               {" "}
               <li>
-                <Link>My Toys</Link>
+                <Link to='/myToys'>My Toys</Link>
               </li>
               <li>
                 <Link to="/addToys">Add A Toy</Link>
