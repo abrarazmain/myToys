@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "react-tabs/style/react-tabs.css";
 
 const ShopCategory = () => {
@@ -17,10 +18,10 @@ const ShopCategory = () => {
       });
   }, [activeTab]);
 
-  console.log(cars);
+  // console.log(car._id);
   return (
     <div className="my-12">
-      <h2 className="text-3xl sm:text-5xl block font-extrabold text-[#b18aff] text-center my-4 ">
+      <h2 className="text-3xl sm:text-5xl block font-extrabold text-[#65C3C8] text-center my-4 ">
         Available Toys
       </h2>
       <div className="tab-container text-center">
@@ -29,7 +30,7 @@ const ShopCategory = () => {
             <div
               onClick={() => handleTabClick("allToys")}
               className={`cursor-pointer mr-4 py-2 px-4 rounded ${
-                activeTab == "allToys" ? "bg-[#b18aff]" : ""
+                activeTab == "allToys" ? "bg-[#65C3C8]" : ""
               }`}
             >
               All Toys
@@ -37,7 +38,7 @@ const ShopCategory = () => {
             <div
               onClick={() => handleTabClick("Sports Car")}
               className={`cursor-pointer mr-4 py-2 px-4 rounded ${
-                activeTab == "Sports Car" ? "bg-[#b18aff]" : ""
+                activeTab == "Sports Car" ? "bg-[#65C3C8]" : ""
               }`}
             >
               Sport Car
@@ -45,7 +46,7 @@ const ShopCategory = () => {
             <div
               onClick={() => handleTabClick("Truck")}
               className={`cursor-pointer py-2 px-4 rounded ${
-                activeTab == "Truck" ? "bg-[#b18aff] " : ""
+                activeTab == "Truck" ? "bg-[#65C3C8] " : ""
               }`}
             >
               Truck
@@ -53,7 +54,7 @@ const ShopCategory = () => {
             <div
               onClick={() => handleTabClick("Regular Car")}
               className={`cursor-pointer py-2 px-4 rounded ${
-                activeTab == "Regular Car" ? "bg-[#b18aff] " : ""
+                activeTab == "Regular Car" ? "bg-[#65C3C8] " : ""
               }`}
             >
               Regular Car
@@ -76,7 +77,12 @@ const ShopCategory = () => {
                   <p>Price : {car.price}</p>
                   <p>rating : {car.rating}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <Link
+                      to={`/singleToy/${car._id}`}
+                      className="btn btn-primary"
+                    >
+                      View Details
+                    </Link>
                   </div>
                 </div>
               </div>

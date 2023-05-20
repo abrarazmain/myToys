@@ -2,7 +2,7 @@ const Gallery = () => {
   return (
     <>
       <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-24 ">
-        <h2 className=" text-5xl block font-extrabold text-[#b18aff] text-center my-4">
+        <h2 className=" text-5xl block font-extrabold text-[#65C3C8] text-center my-4">
           Photo Gallery
         </h2>
         <div className="-m-1 md:flex flex-wrap md:-m-2">

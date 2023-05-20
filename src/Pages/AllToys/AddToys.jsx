@@ -23,10 +23,10 @@ const AddToys = () => {
   };
   return (
     <form className="mb-36 rounded" onSubmit={handleSubmit(onSubmit)}>
-      <h2 className="text-3xl sm:text-5xl block font-extrabold text-[#b18aff] text-center my-12 rounded ">
+      <h2 className="text-3xl sm:text-5xl block font-extrabold text-[#65C3C8] text-center my-12 rounded ">
         Add A Toy
       </h2>
-      <div className="grid gap-6  md:grid-cols-2 bg-[#b18aff] py-4 px-3  ">
+      <div className="grid gap-6  md:grid-cols-2 bg-[#65C3C8] py-4 px-3  ">
         <div>
           <label className="block mb-2 text-sm font-medium text-gray-900">
             Picture URL
@@ -129,7 +129,7 @@ const AddToys = () => {
           />
         </div>
         <input
-          className="btn bg-[#b18aff] text-black"
+          className="btn bg-[#65C3C8] text-black"
           type="submit"
           value="submit"
         />

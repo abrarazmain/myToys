@@ -1,14 +1,19 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
   const { signIn, googleLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  console.log(from);
 
   const handleGoogleLogin = () => {
     googleLogin().then((result) => {
       const user = result.user;
       console.log(user);
+      navigate(from, { replace: true });
     });
   };
 
@@ -20,7 +25,9 @@ const Login = () => {
     const password = form.password.value;
 
     signIn(email, password)
-      .then(() => {})
+      .then(() => {
+        navigate(from, { replace: true });
+      })
       .catch(() => {});
   };
   return (
@@ -80,7 +87,7 @@ const Login = () => {
                     placeholder="Password"
                     name="password"
                   />
-                  <button className="mt-5 tracking-wide font-semibold bg-[#b18aff] text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                  <button className="mt-5 tracking-wide font-semibold bg-[#65C3C8] text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                     <svg
                       className="w-6 h-6 -ml-2 "
                       fill="none"
@@ -98,7 +105,7 @@ const Login = () => {
                 </form>
                 <p className="mt-6 text-sm text-gray-600 text-center">
                   Do not have an account?{" "}
-                  <Link className="font-bold text-[#b18aff]" to="/register">
+                  <Link className="font-bold text-[#65C3C8]" to="/register">
                     Register.
                   </Link>
                 </p>

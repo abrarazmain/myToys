@@ -6,7 +6,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
   return (
-    <div className="navbar bg-[#b18aff] rounded my-3">
+    <div className="navbar bg-[#65C3C8] rounded my-3">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

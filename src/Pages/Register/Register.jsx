@@ -18,7 +18,7 @@ const Register = () => {
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
-    console.log(name, email, photo, password);
+
 
     createUser(email, password)
       .then(() => {
@@ -64,7 +64,7 @@ const Register = () => {
                     placeholder="PhotoURl"
                     name="photo"
                   />
-                  <button className="mt-5 tracking-wide font-semibold bg-[#b18aff] text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                  <button className="mt-5 tracking-wide font-semibold bg-[#65C3C8] text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                     <svg
                       className="w-6 h-6 -ml-2 "
                       fill="none"
@@ -82,7 +82,7 @@ const Register = () => {
                 </form>
                 <p className="mt-6 text-sm text-gray-600 text-center">
                   Already have an account?{" "}
-                  <Link className="font-bold text-[#b18aff]" to="/login">
+                  <Link className="font-bold text-[#65C3C8]" to="/login">
                     Login.
                   </Link>
                 </p>

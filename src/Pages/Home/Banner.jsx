@@ -8,7 +8,7 @@ const Banner = () => {
         <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
           <h1 className="text-3xl font-extrabold sm:text-5xl">
             Let us find your
-            <strong className="block font-extrabold text-[#b18aff]">
+            <strong className="block font-extrabold text-[#65C3C8]">
               Kids Toys.
             </strong>
           </h1>
@@ -19,7 +19,7 @@ const Banner = () => {
           <div className="mt-8 flex flex-wrap gap-4 text-center lg:px-[90px]">
             <a
               href="#"
-              className="block  w-full rounded bg-[#b18aff] px-12 py-3 text-sm font-medium text-white shadow  focus:outline-none focus:ring  sm:w-auto"
+              className="block  w-full rounded bg-[#65C3C8] px-12 py-3 text-sm font-medium text-white shadow  focus:outline-none focus:ring  sm:w-auto"
             >
               Get Started
             </a>
