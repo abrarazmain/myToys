@@ -1,7 +1,14 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../providers/AuthProvider";
+
+import Swal from 'sweetalert2'
 
 const AddToys = () => {
   const { register, handleSubmit } = useForm();
+  const { user } = useContext(AuthContext);
+
+  const { email, displayName } = user || {};
 
   const onSubmit = (data) => {
     const processedData = {
@@ -19,6 +26,14 @@ const AddToys = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
+        if (result.insertedId) {
+          console.log('yup');
+          Swal.fire(
+            'Success!',
+            'Toy added successfully!',
+            'ok'
+          )
+        }
       });
   };
   return (
@@ -67,6 +82,7 @@ const AddToys = () => {
             seller name
           </label>
           <input
+            value={displayName || ""}
             {...register("sellerName")}
             type="text"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -78,6 +94,7 @@ const AddToys = () => {
             Seller Email
           </label>
           <input
+            value={email || ""}
             {...register("email")}
             type="text"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
