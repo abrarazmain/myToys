@@ -4,6 +4,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { BiEdit } from "react-icons/bi";
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -15,7 +16,46 @@ const MyToys = () => {
       .then((data) => {
         setToys(data);
       });
-  }, [user]);
+  }, [toys]);
+
+  const handleDelete = (id) => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          fetch(`http://localhost:5000/deleteToy/${id}`, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              if (data.deletedCount == 1) {
+                swalWithBootstrapButtons.fire(
+                  "Deleted!",
+                  "Your file has been deleted.",
+                  "success"
+                );
+              }
+            });
+        }
+      });
+  };
 
   return (
     <div className="overflow-x-auto my-20">
@@ -51,7 +91,7 @@ const MyToys = () => {
                 <Link to={`/updateToy/${toy._id}`}>
                   <BiEdit></BiEdit>
                 </Link>{" "}
-                <button>
+                <button onClick={() => handleDelete(toy._id)}>
                   <MdDeleteForever></MdDeleteForever>
                 </button>
               </td>
