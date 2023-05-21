@@ -1,37 +1,32 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useTitle from "../../Utils/UseTitle";
 
 const AllToys = () => {
-    const [cars, setCars] = useState([]);
-    // const [searchText, setSearchText] = useState("");
-    
-    useEffect(() => {
-      fetch(`http://localhost:5000/allToys/--`)
-        .then((res) => res.json())
-        .then((data) => {
-          setCars(data);
-        });
-    }, [cars]);
-    
-    // useEffect(() => {
-    //   fetch(`http://localhost:5000/toyByName/${searchText}`)
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       setCars(data);
-    //     });
-    // }, [cars]);
+  useTitle('All cars');
+  const [cars, setCars] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
-    // const handleSearch = e => { 
-    //     const form = e.target
-    //     const search = form.search.value
-    //     setSearchText(search)
-    // }
-    
-    // console.log(searchText);
-    
+  useEffect(() => {
+    fetch(`http://localhost:5000/allToys/--`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCars(data);
+      });
+  }, []);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    fetch(`http://localhost:5000/toyByName/${searchText}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCars(data);
+      });
+  };
+
   return (
     <>
-      <form>
+      <form onSubmit={handleSearch}>
         <label
           htmlFor="default-search"
           className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -56,23 +51,24 @@ const AllToys = () => {
               />
             </svg>
           </div>
-                  <input
-                name="search"
+          <input
+            name="search"
             type="search"
             id="default-search"
             className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
             placeholder="Search by car name"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
             required
           />
-                  <button
-                      
+          <button
             type="submit"
             className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2"
           >
             Search
           </button>
         </div>
-      </form>{" "}
+      </form>
       <div className="overflow-x-auto w-full mb-20 mt-4">
         <table className="table w-full table-zebra">
           {/* head */}

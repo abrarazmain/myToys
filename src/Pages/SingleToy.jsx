@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import Rating from "react-rating";
 import { Link, useParams } from "react-router-dom";
 import { BsStar, BsStarFill } from "react-icons/bs";
+import useTitle from "../Utils/UseTitle";
 
 const SingleToy = () => {
+  useTitle('Car Details')
   const { id } = useParams();
   const [toy, serToy] = useState({});
   console.log(id);

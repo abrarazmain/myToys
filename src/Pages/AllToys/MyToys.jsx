@@ -5,19 +5,22 @@ import { BiEdit } from "react-icons/bi";
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../Utils/UseTitle";
 
 const MyToys = () => {
+  useTitle('my cars')
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
   const [toggle, setToggle] = useState(false);
+  const [sort, setSort] = useState(1);
   useEffect(() => {
-    fetch(`http://localhost:5000/myToys/${user?.email}
+    fetch(`http://localhost:5000/myToys/${user?.email}?sort=${sort}
         `)
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
       });
-  }, [toggle]);
+  }, [toggle, user, sort]);
 
   const handleDelete = (id) => {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -60,7 +63,17 @@ const MyToys = () => {
   };
 
   return (
-    <div className="overflow-x-auto my-20">
+    <div className="overflow-x-auto mx-auto my-20">
+      <div className=" my-12 items-center flex justify-center ">
+        {" "}
+        <h1 className="text-2xl">Sort by : </h1>
+        <button onClick={() => setSort(1)} className="btn">
+          Price Up to low
+        </button>
+        <button onClick={() => setSort(-1)} className="btn">
+          Price Low to high
+        </button>
+      </div>
       <table className="table table-zebra w-full">
         <thead>
           <tr>
@@ -79,7 +92,7 @@ const MyToys = () => {
         <tbody>
           {toys.map((toy, i) => (
             // eslint-disable-next-line react/jsx-key
-            <tr>
+            <tr key={i}>
               <th>{i + 1}</th>
               <td>{toy.sellerName}</td>
               <td>{toy.email}</td>

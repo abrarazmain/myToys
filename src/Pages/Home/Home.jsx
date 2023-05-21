@@ -5,8 +5,10 @@ import ShopCategory from "./ShopCategory";
 import  { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import useTitle from "../../Utils/UseTitle";
 
 const Home = () => {
+  useTitle(`Home`)
   useEffect(() => {
     AOS.init({
       // Global settings for AOS

@@ -20,7 +20,7 @@ const ShopCategory = () => {
 
   // console.log(car._id);
   return (
-    <div className="my-12">
+    <div className="my-20">
       <h2 className="text-3xl sm:text-5xl block font-extrabold text-[#65C3C8] text-center my-4 ">
         Available Toys
       </h2>
@@ -64,7 +64,7 @@ const ShopCategory = () => {
       </div>
       <div className="mt-10 grid grid-cols-1 gap-6"></div>
       {/* map */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto mx-[50px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-[100px]  ">
         {cars &&
           cars.map((car) => (
             <>

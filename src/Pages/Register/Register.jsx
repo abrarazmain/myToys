@@ -4,8 +4,10 @@ import app from "../../firebase";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
+import useTitle from "../../Utils/UseTitle";
 
 const Register = () => {
+  useTitle('Register')
   const auth = getAuth(app);
 
   const { createUser } = useContext(AuthContext);

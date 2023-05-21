@@ -18,7 +18,7 @@ const Error = () => {
               <h1 className="font-black uppercase text-3xl lg:text-5xl text-[#65C3C8] mb-10">
                 You seem to be lost!
               </h1>
-              <p>The page you're looking for is not available.</p>
+              <p>The page you are looking for is not available.</p>
               <p>Try searching again or use the Go Back button below.</p>
             </div>
             <div className="mb-20 md:mb-0">

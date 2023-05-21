@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 
 import Swal from "sweetalert2";
+import useTitle from "../../Utils/UseTitle";
 
 const AddToys = () => {
+  useTitle('Add Toys');
   const { register, handleSubmit } = useForm();
   const { user } = useContext(AuthContext);
   const [rating, setRating] = useState("");
