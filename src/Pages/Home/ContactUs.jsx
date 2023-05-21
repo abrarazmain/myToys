@@ -24,7 +24,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div>
+    <div className="my-20">
       {/* Container for demo purpose */}
       <div className="container my-24 px-6 mx-auto mt-20">
         {/* Section: Design Block */}

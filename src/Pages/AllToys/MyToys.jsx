@@ -48,7 +48,6 @@ const MyToys = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-     
               if (data.deletedCount == 1) {
                 setToggle(!toggle);
                 swalWithBootstrapButtons.fire(

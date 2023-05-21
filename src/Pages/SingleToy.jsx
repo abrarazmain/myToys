@@ -9,13 +9,12 @@ const SingleToy = () => {
   const { id } = useParams();
   const [toy, serToy] = useState({});
 
-
   useEffect(() => {
     fetch(`https://my-toys-server-red.vercel.app/singleToy/${id}`)
       .then((res) => res.json())
       .then((data) => serToy(data));
   }, [id]);
- 
+
   const { url, name, sellerName, email, price, rating, quantity, des } =
     toy || {};
 

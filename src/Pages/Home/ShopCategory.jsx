@@ -63,7 +63,10 @@ const ShopCategory = () => {
       </div>
       <div className="mt-10 grid grid-cols-1 gap-6"></div>
       {/* map */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ml-12  " data-aos='fade-left'>
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ml-12  "
+        data-aos="fade-left"
+      >
         {cars &&
           cars.map((car) => (
             <>
