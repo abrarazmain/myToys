@@ -1,12 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 const AddToys = () => {
   const { register, handleSubmit } = useForm();
   const { user } = useContext(AuthContext);
+  const [rating, setRating] = useState("");
 
   const { email, displayName } = user || {};
 
@@ -27,14 +28,20 @@ const AddToys = () => {
       .then((result) => {
         console.log(result);
         if (result.insertedId) {
-          console.log('yup');
-          Swal.fire(
-            'Success!',
-            'Toy added successfully!',
-            'ok'
-          )
+          console.log("yup");
+          Swal.fire("Success!", "Toy added successfully!", "ok");
         }
       });
+  };
+
+  const handleRatingChange = (event) => {
+    let inputValue = event.target.value;
+    // Validate if the input value is greater than 5
+    if (inputValue > 5) {
+      inputValue = 5;
+    }
+
+    setRating(inputValue);
   };
   return (
     <form className="mb-36 rounded" onSubmit={handleSubmit(onSubmit)}>
@@ -117,10 +124,12 @@ const AddToys = () => {
             Rating
           </label>
           <input
-            {...register("rating")}
+            value={rating}
+            onChange={handleRatingChange}
             type="number"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-            placeholder="rating"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="rating (max value =5)"
+            max="5"
           />
         </div>
         <div>

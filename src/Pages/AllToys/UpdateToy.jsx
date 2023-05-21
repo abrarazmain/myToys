@@ -3,8 +3,10 @@ import Swal from "sweetalert2";
 
 import { useForm } from "react-hook-form";
 
+
 const UpdateToy = () => {
   const { register, handleSubmit } = useForm();
+
 
   const toy = useLoaderData();
 
@@ -12,6 +14,7 @@ const UpdateToy = () => {
     const processedData = {
       ...data,
       price: parseFloat(data.price),
+      rating: parseFloat(data.rating),
     };
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -52,13 +55,11 @@ const UpdateToy = () => {
               }
             });
         } else if (result.dismiss === Swal.DismissReason.cancel) {
-          swalWithBootstrapButtons.fire(
-            "Cancelled",
-            "error"
-          );
+          swalWithBootstrapButtons.fire("Cancelled", "error");
         }
       });
   };
+
 
   return (
     <form className="mb-36 rounded" onSubmit={handleSubmit(onSubmit)}>
@@ -109,11 +110,12 @@ const UpdateToy = () => {
             Rating
           </label>
           <input
-            defaultValue={toy?.rating}
+            value={toy?.rating}
             {...register("rating")}
             type="number"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-            placeholder="rating"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            placeholder="rating (max value =5)"
+            max="5"
           />
         </div>
         <div>

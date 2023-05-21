@@ -19,7 +19,6 @@ const Register = () => {
     const photo = form.photo.value;
     const password = form.password.value;
 
-
     createUser(email, password)
       .then(() => {
         updateProfile(auth.currentUser, {

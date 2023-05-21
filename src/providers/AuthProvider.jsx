@@ -11,7 +11,6 @@ import {
 } from "firebase/auth";
 import app from "../firebase";
 
-
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
   const auth = getAuth(app);
@@ -19,6 +18,7 @@ const AuthProvider = ({ children }) => {
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  console.log(user);
 
   const createUser = (email, password) => {
     setLoading(true);

@@ -1,38 +1,51 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-
+import Rating from "react-rating";
+import { Link, useParams } from "react-router-dom";
+import { BsStar, BsStarFill } from "react-icons/bs";
 
 const SingleToy = () => {
-const{ id }= useParams()
-    const [toy, serToy] = useState({})
-    console.log(id);
+  const { id } = useParams();
+  const [toy, serToy] = useState({});
+  console.log(id);
 
-    useEffect(() => {
-        fetch(`http://localhost:5000/singleToy/${id}`)
-            .then(res => res.json())
-           .then(data => serToy(data))
-    },[id])
-    console.log(toy);
-    const {url}=toy || {}
-
-    
+  useEffect(() => {
+    fetch(`http://localhost:5000/singleToy/${id}`)
+      .then((res) => res.json())
+      .then((data) => serToy(data));
+  }, [id]);
+  // console.log(toy);
+  const { url, name, sellerName, email, price, rating, quantity, des } =
+    toy || {};
 
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
+      <h2 className="text-3xl sm:text-5xl block font-extrabold text-[#65C3C8] text-center my-12 rounded ">
+        Toy Details
+      </h2>
+      <div className="hero min-h-[500px] bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <img
-            src={url}
-            className="max-w-sm rounded-lg shadow-2xl"
-          />
+          <img src={url} className="max-w-sm rounded-lg shadow-2xl" />
           <div>
-            <h1 className="text-5xl font-bold">Box Office News!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+            <h1 className="text-5xl font-bold">Name :{name}</h1>
+            <p className="py-2">Seller Name : {sellerName}</p>
+            <p className="py-2">Seller Email: {email}</p>
+            <p className="py-2">Price:{price} taka</p>
+            <p className="">
+              Rating :
+              <Rating
+                readonly
+                placeholderRating={rating}
+                emptySymbol={<BsStar></BsStar>}
+                placeholderSymbol={<BsStarFill></BsStarFill>}
+                fullSymbol={<BsStarFill></BsStarFill>}
+              />
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <p className="py-2">Available Quantity:{quantity}</p>
+            <p className="py-2 max-w-[500px] break-words">Description:{des}</p>
+
+            <Link to="/" className="btn btn-primary">
+              Back Home
+            </Link>
           </div>
         </div>
       </div>
