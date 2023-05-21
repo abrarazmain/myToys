@@ -4,11 +4,9 @@ import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import useTitle from "../../Utils/UseTitle";
 
-
 const UpdateToy = () => {
-  useTitle('Update Cars')
+  useTitle("Update Cars");
   const { register, handleSubmit } = useForm();
-
 
   const toy = useLoaderData();
 
@@ -38,7 +36,7 @@ const UpdateToy = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/updateToy/${toy?._id}`, {
+          fetch(`https://my-toys-server-red.vercel.app/updateToy/${toy?._id}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
@@ -61,7 +59,6 @@ const UpdateToy = () => {
         }
       });
   };
-
 
   return (
     <form className="mb-36 rounded" onSubmit={handleSubmit(onSubmit)}>
@@ -147,7 +144,7 @@ const UpdateToy = () => {
         <input
           className="btn bg-[#65C3C8] text-black"
           type="submit"
-          value="submit"
+          value="Update"
         />
         <Link to="/myToys">
           {" "}

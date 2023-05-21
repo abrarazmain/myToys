@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import useTitle from "../../Utils/UseTitle";
 
 const AllToys = () => {
-  useTitle('All cars');
+  useTitle("All cars");
   const [cars, setCars] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allToys/--`)
+    fetch(`https://my-toys-server-red.vercel.app/allToys/--`)
       .then((res) => res.json())
       .then((data) => {
         setCars(data);
@@ -17,7 +17,7 @@ const AllToys = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/toyByName/${searchText}`)
+    fetch(`https://my-toys-server-red.vercel.app/toyByName/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         setCars(data);

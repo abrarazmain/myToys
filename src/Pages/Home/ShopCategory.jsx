@@ -11,7 +11,7 @@ const ShopCategory = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allToys/${activeTab}`)
+    fetch(`https://my-toys-server-red.vercel.app/allToys/${activeTab}`)
       .then((res) => res.json())
       .then((data) => {
         setCars(data);
@@ -64,7 +64,7 @@ const ShopCategory = () => {
       </div>
       <div className="mt-10 grid grid-cols-1 gap-6"></div>
       {/* map */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-[100px]  ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ml-12  " data-aos='fade-left'>
         {cars &&
           cars.map((car) => (
             <>

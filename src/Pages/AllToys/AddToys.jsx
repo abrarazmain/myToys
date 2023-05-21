@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import useTitle from "../../Utils/UseTitle";
 
 const AddToys = () => {
-  useTitle('Add Toys');
+  useTitle("Add Toys");
   const { register, handleSubmit } = useForm();
   const { user } = useContext(AuthContext);
   const [rating, setRating] = useState("");
@@ -19,7 +19,7 @@ const AddToys = () => {
       price: parseFloat(data.price),
     };
 
-    fetch("http://localhost:5000/toys", {
+    fetch("https://my-toys-server-red.vercel.app/toys", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

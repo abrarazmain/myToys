@@ -31,9 +31,9 @@ const ContactUs = () => {
         <section className="mb-32 text-gray-800">
           <div className="flex justify-center">
             <div className="text-center lg:max-w-3xl md:max-w-xl">
-            <h2 className="text-3xl sm:text-5xl block font-extrabold text-[#65C3C8] text-center my-12 ">
-Contact Us
-      </h2>
+              <h2 className="text-3xl sm:text-5xl block font-extrabold text-[#65C3C8] text-center my-12 ">
+                Contact Us
+              </h2>
             </div>
           </div>
           <div className="flex flex-wrap">
@@ -109,7 +109,7 @@ Contact Us
                     defaultValue={""}
                   />
                 </div>
-              
+
                 <button
                   value="send"
                   type="submit"

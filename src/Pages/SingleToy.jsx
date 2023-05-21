@@ -5,13 +5,13 @@ import { BsStar, BsStarFill } from "react-icons/bs";
 import useTitle from "../Utils/UseTitle";
 
 const SingleToy = () => {
-  useTitle('Car Details')
+  useTitle("Car Details");
   const { id } = useParams();
   const [toy, serToy] = useState({});
   console.log(id);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/singleToy/${id}`)
+    fetch(`https://my-toys-server-red.vercel.app/singleToy/${id}`)
       .then((res) => res.json())
       .then((data) => serToy(data));
   }, [id]);

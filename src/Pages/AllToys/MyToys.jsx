@@ -8,13 +8,13 @@ import Swal from "sweetalert2";
 import useTitle from "../../Utils/UseTitle";
 
 const MyToys = () => {
-  useTitle('my cars')
+  useTitle("my cars");
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [sort, setSort] = useState(1);
   useEffect(() => {
-    fetch(`http://localhost:5000/myToys/${user?.email}?sort=${sort}
+    fetch(`https://my-toys-server-red.vercel.app/myToys/${user?.email}?sort=${sort}
         `)
       .then((res) => res.json())
       .then((data) => {
@@ -43,7 +43,7 @@ const MyToys = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/deleteToy/${id}`, {
+          fetch(`https://my-toys-server-red.vercel.app/deleteToy/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())

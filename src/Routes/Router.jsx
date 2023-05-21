@@ -35,7 +35,11 @@ const router = createBrowserRouter([
       },
       {
         path: "singleToy/:id",
-        element: <PrivateRoute><SingleToy /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <SingleToy />
+          </PrivateRoute>
+        ),
       },
       {
         path: "allToys",
@@ -52,16 +56,15 @@ const router = createBrowserRouter([
       {
         path: "updateToy/:id",
         element: <UpdateToy />,
-        loader:({params})=>fetch(`http://localhost:5000/singleToy/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`https://my-toys-server-red.vercel.app/singleToy/${params.id}`),
       },
-        
     ],
-    
   },
   {
     path: "*",
     element: <Error></Error>,
-  }
+  },
 ]);
 
 export default router;
