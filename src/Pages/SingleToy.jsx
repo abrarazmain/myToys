@@ -8,14 +8,14 @@ const SingleToy = () => {
   useTitle("Car Details");
   const { id } = useParams();
   const [toy, serToy] = useState({});
-  console.log(id);
+
 
   useEffect(() => {
     fetch(`https://my-toys-server-red.vercel.app/singleToy/${id}`)
       .then((res) => res.json())
       .then((data) => serToy(data));
   }, [id]);
-  // console.log(toy);
+ 
   const { url, name, sellerName, email, price, rating, quantity, des } =
     toy || {};
 

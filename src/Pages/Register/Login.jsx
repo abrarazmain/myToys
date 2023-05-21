@@ -9,12 +9,12 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  console.log(from);
+
 
   const handleGoogleLogin = () => {
     googleLogin().then((result) => {
       const user = result.user;
-      console.log(user);
+
       navigate(from, { replace: true });
     });
   };

@@ -15,10 +15,10 @@ const ContactUs = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
+
         },
         (error) => {
-          console.log(error.text);
+    
         }
       );
   };

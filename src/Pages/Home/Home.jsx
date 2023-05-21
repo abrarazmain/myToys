@@ -5,6 +5,7 @@ import ShopCategory from "./ShopCategory";
 
 import "aos/dist/aos.css";
 import useTitle from "../../Utils/UseTitle";
+import Review from "./Review";
 
 const Home = () => {
   useTitle(`Home`);
@@ -15,6 +16,7 @@ const Home = () => {
       <Gallery></Gallery>
       <ShopCategory></ShopCategory>
       <ContactUs></ContactUs>
+      <Review></Review>
     </div>
   );
 };

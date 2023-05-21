@@ -18,7 +18,6 @@ const ShopCategory = () => {
       });
   }, [activeTab]);
 
-  // console.log(car._id);
   return (
     <div className="my-20">
       <h2 className="text-3xl sm:text-5xl block font-extrabold text-[#65C3C8] text-center my-4 ">

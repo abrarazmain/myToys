@@ -28,9 +28,9 @@ const AddToys = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+
         if (result.insertedId) {
-          console.log("yup");
+      
           Swal.fire("Success!", "Toy added successfully!", "ok");
         }
       });

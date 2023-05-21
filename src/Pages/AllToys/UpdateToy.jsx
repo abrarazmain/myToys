@@ -45,7 +45,7 @@ const UpdateToy = () => {
           })
             .then((res) => res.json())
             .then((result) => {
-              console.log(result);
+          
               if (result.modifiedCount) {
                 swalWithBootstrapButtons.fire(
                   "UPDATED!",
