@@ -124,6 +124,7 @@ const AddToys = () => {
             Rating
           </label>
           <input
+              {...register("rating")}
             value={rating}
             onChange={handleRatingChange}
             type="number"
